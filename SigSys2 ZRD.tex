@@ -1,0 +1,51 @@
+%Autor: Simon Walker
+%Version: 1.0
+%Datum: 23.07.2020
+%Lizenz: CC BY-NC-SA
+
+\documentclass[10pt, a4paper]{article}
+\title{\fontsize{60}{20} \textbf{SigSys2 ZRD}}
+\newcommand{\versioninfo}{v1.0}
+\author{S.Walker}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Kopf und Fusszeile und Weiter Designeinstellungen
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[left=20mm,right=20mm,top=20mm,bottom=15mm,includeheadfoot]{geometry}
+
+\usepackage{fancyhdr}	%Fancyhdr ist ein eingeführtes, eigenständiges Paket zur einfacheren Manipulation von Kopf- und Fußzeile. Es definiert Befehle für den Seitenstil fancy
+\usepackage{lastpage}	%Ref­er­ence the num­ber of pages in your LaTeX doc­u­ment through the in­tro­duc­tion of a new la­bel which can be ref­er­enced like \pageref{LastPage} to give a ref­er­ence to the last page of a doc­u­ment. It is par­tic­u­larly use­ful in the page footer that says: Page N of M. 	
+\renewcommand{\headrulewidth}{0.25pt} 
+\renewcommand{\footrulewidth}{0.25pt}
+
+\fancyhf{}
+\fancyhead[L]{SigSys2 ZRD  \tiny{\textit{\versioninfo}}}
+\fancyhead[R]{Simon Walker}
+
+\fancyfoot[L]{\today}
+\fancyfoot[R]{Seite \thepage { }von \pageref{LastPage}}
+
+\setlength{\parindent}{0pt} %Einrücken von Absätzen verhindern
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Verwendete Packete
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amssymb} %Mathematische Bibliotheken
+\usepackage{amsmath}
+\usepackage{bm}
+
+\usepackage{tikz}
+\usepackage[european]{circuitikz}
+
+\usepackage[ngerman]{babel}	%Deutsches Sprachpaket
+
+\begin{document}
+	\pagestyle{fancy}
+	
+	\raggedbottom %Inhalt nicht auf ganze seite verteilen
+	
+	\input{section/Matrizen-ZRD.tex}
+	
+\end{document}

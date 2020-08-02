@@ -1,0 +1,44 @@
+%Autor: Simon Walker
+%Version: 1.0
+%Datum: 23.07.2020
+%Lizenz: CC BY-NC-SA
+
+\begin{figure}
+	\centering
+	\input{tikz/ZRD-Grundschema.tex}
+\end{figure}
+
+%Einleitung
+Bei diesem Beispiel handelt es sich um ein SISO (singel Input, singel Output) System und hat zwei Zustände.
+
+%Matrizen
+\begin{equation*}
+	\colorbox{red!20!white}{$
+	\mathbf{A} = \left[\begin{array}{cc}
+		A_{11} & A_{12}\\
+		A_{21} & A_{22}
+	\end{array}\right]
+	$}
+	\qquad
+	\colorbox{blue!30!white}{$
+	\mathbf{B} = \left[\begin{array}{c}
+		B_{1}\\
+		B_{2}
+	\end{array}\right]
+	$}
+	\qquad
+	\colorbox{green!30!white}{$
+	\mathbf{C} = \left[\begin{array}{cc}
+		C_{1} & C_{2}
+	\end{array}\right]
+	$}
+	\qquad
+	\colorbox{yellow!30!white}{$
+	\mathbf{D} = D_1
+	$}
+\end{equation*}
+
+\begin{figure}[h]
+	\centering
+	\input{tikz/ZRD-SISO-Bsp.tex}
+\end{figure}

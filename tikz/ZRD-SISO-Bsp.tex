@@ -1,0 +1,124 @@
+%Autor: Simon Walker
+%Version: 1.0
+%Datum: 23.07.2020
+%Lizenz: CC BY-NC-SA
+
+\begin{tikzpicture}
+	\newcommand{\Vers}[4][none]{
+		\draw[fill=#1] ($(#2)+(0, 0.4)$) -- (#3) -- ($(#2)+(0, -0.4)$) -- cycle;
+		\node at ($(#2)!0.3!(#3)$) {#4};
+	}
+	
+	\newcommand{\Inte}[3][none]{
+		\draw[fill=#1] ($(#2)+(0, 0.5)$) rectangle ($(#3)+(0, -0.5)$);
+		\node at ($(#2)!0.5!(#3)$) {$\dfrac{1}{S}$};
+	}
+	
+	\tikzset{Sum/.style={draw, circle, fill=white,inner sep=1pt, minimum size=0.6}}
+	
+	%Koordinaten
+	\coordinate (n0) at (-0.3, 0);
+	\coordinate (n2) at (11.3, 0);
+	
+	\coordinate (n10) at (1, -3.5);
+	\coordinate (n11) at (2, -3.5);
+	\coordinate (n12) at (3, -3.5);
+	\coordinate (n13) at (4, -3.5);
+	\coordinate (n14) at (5, -3.5);
+	\coordinate (n15) at (6, -3.5);
+	\coordinate (n16) at (7, -3.5);
+	\coordinate (n17) at (8, -3.5);
+	\coordinate (n18) at (9, -3.5);
+	\coordinate (n19) at (10, -3.5);
+	
+	\coordinate (n20) at (1, 0);
+	\coordinate (n21) at (2, 0);
+	\coordinate (n22) at (3, 0);
+	\coordinate (n23) at (4, 0);
+	\coordinate (n24) at (5, 0);
+	\coordinate (n25) at (6, 0);
+	\coordinate (n26) at (7, 0);
+	\coordinate (n27) at (8, 0);
+	\coordinate (n28) at (9, 0);
+	
+	\coordinate (n30) at (1, 2);
+	\coordinate (n31) at (5, 2);
+	\coordinate (n32) at (6, 2);
+	\coordinate (n33) at (10, 2);
+	
+	\coordinate (n131) at (4, -2.4);
+	\coordinate (n132) at (5, -2.4);
+	\coordinate (n133) at (6, -2.4);
+	\coordinate (n134) at (6.5, -2.4);
+	\coordinate (n135) at (4, -4.6);
+	\coordinate (n136) at (5, -4.6);
+	\coordinate (n137) at (6, -4.6);
+	\coordinate (n138) at (7, -4.6);
+	
+	\coordinate (n231) at (4, -1.1);
+	\coordinate (n232) at (5, -1.1);
+	\coordinate (n233) at (6, -1.1);
+	\coordinate (n234) at (6.5, -1.1);
+	\coordinate (n235) at (4, 1.1);
+	\coordinate (n236) at (5, 1.1);
+	\coordinate (n237) at (6, 1.1);
+	\coordinate (n238) at (7, 1.1);
+	
+	
+	%Sumatoren
+	\node[Sum] (n23) at (4,0){$+$};
+	\node[Sum] (n13) at (4,-3.5){$+$};
+	\node[Sum] (n1) at (10, 0){$+$};
+	
+	%Verstärker
+	\Vers[yellow!30!white]{n31}{n32}{$D_1$}
+	\Vers[blue!30!white]{n21}{n22}{$B_1$}
+	\Vers[blue!30!white]{n11}{n12}{$B_2$}
+	\Vers[green!30!white]{n27}{n28}{$C_1$}
+	\Vers[green!30!white]{n17}{n18}{$C_2$}
+	
+	\Vers[red!20!white]{n133}{n132}{$A_{12}$}
+	\Vers[red!20!white]{n137}{n136}{$A_{22}$}
+	\Vers[red!20!white]{n233}{n232}{$A_{21}$}
+	\Vers[red!20!white]{n237}{n236}{$A_{11}$}
+	
+	%Integratorten
+	\Inte{n14}{n15}
+	\Inte{n24}{n25}
+	
+	
+	\draw (n0) node[above right] {$u(t)$} to[short, -*] (n20);
+	
+	\draw[->] (n20) -- (n30) -- (n31);
+	\draw[->] (n32) -- (n33) --(n1);
+	
+	\draw[->] (n20) -- (n21);
+	\draw[->] (n22) -- (n23);
+	\draw[->] (n23) -- (n24);
+	\draw[->] (n25) -- (n27);
+	\draw[->] (n28) -- (n1);
+	
+	\draw[->] (n20) -- (n10) -- (n11);
+	\draw[->] (n12) -- (n13);
+	\draw[->] (n13) -- (n14);
+	\draw[->] (n15) -- (n17);
+	\draw[->] (n18) -- (n19) -- (n1);
+	
+	\draw (n26) to[short, *-] (n238);
+	\draw[->] (n238) -- (n237);
+	\draw[->] (n236) -- (n235) -- (n23);
+	
+	\draw (n26) to[short, *-] (n134);
+	\draw[->] (n134) -- (n133);
+	\draw[->] (n132) -- (n131) -- (n13);
+	
+	\draw (n16) to[short, *-] (n234);
+	\draw[->] (n234) -- (n233);
+	\draw[->] (n232) -- (n231) -- (n23);
+	
+	\draw (n16) to[short, *-] (n138);
+	\draw[->] (n138) -- (n137);
+	\draw[->] (n136) -- (n135) -- (n13);
+	
+	\draw[->] (n1) -- (n2) node[above left] {$y(t)$};
+\end{tikzpicture}

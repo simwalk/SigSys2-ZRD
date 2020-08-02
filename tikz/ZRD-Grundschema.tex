@@ -1,0 +1,57 @@
+%Autor: Simon Walker
+%Version: 1.0
+%Datum: 23.07.2020
+%Lizenz: CC BY-NC-SA
+
+\begin{tikzpicture}
+	\newcommand{\Block}[4][none]{
+		\draw[fill=#1] ($(#2)+(0, 0.5)$) rectangle ($(#3)+(0, -0.5)$);
+		\node at ($(#2)!0.5!(#3)$) {#4};
+	}
+	
+	\newcommand{\Inte}[3][none]{
+		\draw[fill=#1] ($(#2)+(0, 0.5)$) rectangle ($(#3)+(0, -0.5)$);
+		\node at ($(#2)!0.5!(#3)$) {$\dfrac{1}{S}$};
+	}
+	
+	\tikzset{Sum/.style={draw, circle, fill=white,inner sep=1pt, minimum size=0.6}} 
+	
+	\coordinate (n0) at (0, 0);
+	\coordinate (n1) at (0.5, 0);
+	\coordinate (n3) at (7, 0);
+	
+	\coordinate (n10) at (1,0);
+	\coordinate (n11) at (2,0);
+	\coordinate (n13) at (3,0);
+	\coordinate (n14) at (4,0);
+	\coordinate (n15) at (4.5,0);
+	\coordinate (n16) at (5,0);
+	\coordinate (n17) at (6,0);
+	
+	%Sumatoren
+	\node[Sum] (n12) at (2.5,0){$+$};
+	\node[Sum] (n2) at (6.5,0){$+$};
+	
+	%Integrator
+	\Inte{n13}{n14}
+	
+	%Blöcke
+	\Block[blue!30!white]{n10}{n11}{$\mathbf{B}$}
+	\Block[yellow!30!white]{$(n13)+(0,1.5)$}{$(n14)+(0,1.5)$}{$\mathbf{D}$}
+	\Block[red!20!white]{$(n13)+(0,-1.5)$}{$(n14)+(0,-1.5)$}{$\mathbf{A}$}
+	\Block[green!30!white]{n16}{n17}{$\mathbf{C}$}
+	
+	\draw[->] node[left] {$\underline{u}(t)$} (n0) -- (n10);
+	\draw[->] (n11) -- (n12);
+	\draw[->] (n12) -- (n13);
+	\draw[->] (n14) -- (n16);
+	\draw[->] (n17) -- (n2);
+	\draw[->] (n2) -- (n3) node[right] {$\underline{y}(t)$};
+	
+	\draw[->] (n1) to[short,*-] ($(n1)+(0, 1.5)$) -- ($(n13)+(0,1.5)$);
+	\draw[->] ($(n14)+(0,1.5)$) -| (n2);
+	
+	\draw[->] (n15) to[short,*-] ($(n15)+(0, -1.5)$) -- ($(n14)+(0,-1.5)$);
+	\draw[->] ($(n13)+(0,-1.5)$) -| (n12);
+
+\end{tikzpicture}
